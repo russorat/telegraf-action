@@ -27,5 +27,5 @@ steps:
   - name: Install Telegraf
     uses: influxdata/telegraf-action@v1
     with:
-      influxdb_version: 1.19.0
+      telegraf_version: 1.19.0
 ```
