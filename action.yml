@@ -1,0 +1,17 @@
+name: 'Telegraf Action'
+description: 'Install and configure Telegraf.'
+branding:
+  icon: 'upload-cloud'
+  color: 'orange'
+inputs:
+  telegraf_version:
+    description: 'Sets the version of Telegraf to use (for example: 1.19.2). See https://portal.influxdata.com/downloads/ for versions. latest and nightly are also supported.'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Download and Install Telegraf
+      run: |
+        export TELEGRAF_VERSION=${{inputs.telegraf_version}}
+        ${{ github.action_path }}/install-telegraf.sh
+      shell: bash
