@@ -14,10 +14,10 @@ else
   fi
   cd /tmp
   wget -q $TELEGRAF_DOWNLOAD_PATH/telegraf-${TELEGRAF_VERSION}_linux_amd64.tar.gz
-  tar xf telegraf-${TELEGRAF_VERSION}_linux_amd64.tar.gz
+  tar xf telegraf-${TELEGRAF_VERSION}_linux_amd64.tar.gz 2> /dev/null
   TELEGRAF_DIR=$(find . -type d -name "telegraf-*" 2> /dev/null | head -n 1)
   sudo cp $TELEGRAF_DIR/usr/bin/telegraf /usr/local/bin/
-  sudo cp -r $TELEGRAF_DIR/etc/* /usr/local/etc/
+  sudo cp -r $TELEGRAF_DIR/etc/* /etc/
   rm -r $TELEGRAF_DIR
   cd -
 fi
